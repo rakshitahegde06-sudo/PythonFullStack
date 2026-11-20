@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,293 +10,157 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', sans-serif;
         }
 
         body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #dbeafe, #eef2ff);
             min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            transition: 0.4s;
-            padding: 20px;
         }
 
-        .dashboard {
-            width: 100%;
-            max-width: 750px;
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-            text-align: center;
-            animation: slideUp 0.8s ease;
-            transition: 0.4s;
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .top-bar {
+        /* Navbar */
+        .navbar {
+            background: #1e3a8a;
+            color: white;
+            padding: 20px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 35px;
         }
 
-        .logo {
-            font-size: 22px;
-            font-weight: bold;
-            color: #667eea;
+        .navbar h2 {
+            font-size: 24px;
         }
 
-        .theme-btn {
-            border: none;
-            background: #eee;
-            padding: 10px 14px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 18px;
-            transition: 0.3s;
+        .navbar span {
+            font-size: 15px;
         }
 
-        .theme-btn:hover {
-            transform: rotate(30deg);
+        /* Main Container */
+        .container {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
         }
 
-        .profile-icon {
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 50%;
-            margin: auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 45px;
-            color: white;
-            margin-bottom: 20px;
-        }
-
-        h1 {
-            color: #333;
-            margin-bottom: 10px;
-            font-size: 32px;
-        }
-
-        .username {
-            color: #667eea;
-            font-size: 25px;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-
-        .subtitle {
-            color: #777;
+        /* Welcome Section */
+        .welcome-box {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px #00000015;
             margin-bottom: 30px;
         }
 
-        .info-box {
-            background: #f5f6ff;
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 25px;
+        .welcome-box h1 {
+            color: #1e3a8a;
+            margin-bottom: 12px;
         }
 
-        .clock {
-            font-size: 22px;
-            font-weight: bold;
-            color: #667eea;
-            margin-top: 8px;
-        }
-
-        .logout-btn {
-            padding: 13px 35px;
-            border: none;
-            border-radius: 30px;
-            background: linear-gradient(135deg, #ff6b6b, #ee5253);
-            color: white;
+        .welcome-box p {
+            color: #64748b;
             font-size: 16px;
-            font-weight: bold;
+        }
+
+        .username {
+            color: #2563eb;
+        }
+
+        /* Dashboard Cards */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px #00000010;
+            text-align: center;
+        }
+
+        .card h3 {
+            color: #1e40af;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #64748b;
+        }
+
+        /* Logout Button */
+        .logout-btn {
+            background: #ef4444;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
             cursor: pointer;
-            transition: 0.3s;
+            font-size: 15px;
         }
 
         .logout-btn:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(238,82,83,0.4);
+            background: #dc2626;
         }
 
-        .logout-btn:active {
-            transform: scale(0.95);
-        }
-
+        /* Footer */
         .footer {
-            margin-top: 30px;
-            color: #999;
-            font-size: 13px;
-        }
-
-        /* Dark mode */
-
-        body.dark {
-            background: linear-gradient(135deg, #141e30, #243b55);
-        }
-
-        body.dark .dashboard {
-            background: #1e293b;
-        }
-
-        body.dark h1 {
-            color: white;
-        }
-
-        body.dark .subtitle,
-        body.dark .footer {
-            color: #cbd5e1;
-        }
-
-        body.dark .info-box {
-            background: #334155;
-            color: white;
-        }
-
-        body.dark .theme-btn {
-            background: #334155;
-            color: white;
-        }
-
-        @media(max-width: 500px) {
-            .dashboard {
-                padding: 25px 18px;
-            }
-
-            h1 {
-                font-size: 25px;
-            }
-
-            .username {
-                font-size: 21px;
-            }
+            text-align: center;
+            padding: 20px;
+            color: #64748b;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="dashboard">
+    <!-- Navbar -->
+    <div class="navbar">
+        <h2>Student Management System</h2>
 
-        <div class="top-bar">
-            <div class="logo">🎓 Student Portal</div>
-
-            <button class="theme-btn" onclick="toggleTheme()" id="themeBtn">
-                🌙
-            </button>
-        </div>
-
-        <div class="profile-icon">
-            👨‍🎓
-        </div>
-
-        <h1 id="welcomeText">Welcome Back!</h1>
-
-        <div class="username">
-            {{ user.username }}
-        </div>
-
-        <p class="subtitle">
-            We're happy to see you again.
-            Have a productive day!
-        </p>
-
-        <div class="info-box">
-            <p>📅 Today's Date</p>
-            <div id="date"></div>
-
-            <br>
-
-            <p>⏰ Current Time</p>
-            <div class="clock" id="clock"></div>
-        </div>
-
-        <form method="POST" action="{% url 'logout' %}"
-              onsubmit="return confirmLogout()">
-
+        <form method="POST" action="{% url 'logout' %}">
             {% csrf_token %}
-
             <button type="submit" class="logout-btn">
-                Logout 🚪
+                Logout
             </button>
-
         </form>
+    </div>
 
-        <div class="footer">
-            © 2026 Student Portal | All Rights Reserved
+    <!-- Dashboard -->
+    <div class="container">
+
+        <div class="welcome-box">
+            <h1>Welcome, <span class="username">{{ user.username }}</span>!</h1>
+            <p>You have successfully logged into your student dashboard.</p>
+        </div>
+
+        <!-- Dashboard Cards -->
+        <div class="cards">
+
+            <div class="card">
+                <h3>👨‍🎓 Students</h3>
+                <p>Manage student information.</p>
+            </div>
+
+            <div class="card">
+                <h3>📝 Registration</h3>
+                <p>Register new students.</p>
+            </div>
+
+            <div class="card">
+                <h3>📊 Reports</h3>
+                <p>View student reports.</p>
+            </div>
+
         </div>
 
     </div>
 
-    <script>
-
-        // Live clock
-
-        function updateClock() {
-            const now = new Date();
-
-            document.getElementById("clock").textContent =
-                now.toLocaleTimeString();
-
-            document.getElementById("date").textContent =
-                now.toLocaleDateString('en-IN', {
-                    weekday: 'long',
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                });
-        }
-
-        updateClock();
-        setInterval(updateClock, 1000);
-
-
-        // Dark / Light mode
-
-        function toggleTheme() {
-            document.body.classList.toggle("dark");
-
-            const isDark =
-                document.body.classList.contains("dark");
-
-            document.getElementById("themeBtn").textContent =
-                isDark ? "☀️" : "🌙";
-
-            localStorage.setItem("darkMode", isDark);
-        }
-
-        // Remember theme preference
-
-        if (localStorage.getItem("darkMode") === "true") {
-            document.body.classList.add("dark");
-            document.getElementById("themeBtn").textContent = "☀️";
-        }
-
-
-        // Logout confirmation
-
-        function confirmLogout() {
-            return confirm("Are you sure you want to logout?");
-        }
-
-    </script>
+    <div class="footer">
+        <p>© 2026 Student Management System | All Rights Reserved</p>
+    </div>
 
 </body>
 </html>

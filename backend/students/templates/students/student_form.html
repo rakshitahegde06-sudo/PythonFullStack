@@ -1,134 +1,107 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Registration</title>
+    <title>User Registration</title>
 
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-
         body {
-            min-height: 100vh;
+            font-family: Arial;
+            background: #26292c;
             display: flex;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            padding: 20px;
+            min-height: 100vh;
         }
 
         .container {
-            width: 100%;
-            max-width: 500px;
             background: white;
-            padding: 35px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            width: 350px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #aaa;
         }
 
         h2 {
             text-align: center;
-            color: #333;
-            margin-bottom: 25px;
-            font-size: 28px;
         }
 
-        form p {
-            margin-bottom: 18px;
-        }
-
-        form label {
-            display: block;
-            margin-bottom: 8px;
-            color: #444;
+        label {
             font-weight: bold;
         }
 
-        form input,
-        form select,
-        form textarea {
+        input {
             width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 7px;
-            font-size: 15px;
-            outline: none;
-            transition: 0.3s;
-        }
-
-        form input:focus,
-        form select:focus,
-        form textarea:focus {
-            border-color: #667eea;
-            box-shadow: 0 0 5px rgba(102, 126, 234, 0.4);
-        }
-
-        form ul {
-            margin-left: 20px;
+            padding: 10px;
+            margin: 8px 0 15px;
+            box-sizing: border-box;
         }
 
         button {
             width: 100%;
-            padding: 13px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 12px;
+            background: #2563eb;
             color: white;
             border: none;
-            border-radius: 7px;
-            font-size: 17px;
-            font-weight: bold;
             cursor: pointer;
-            transition: 0.3s;
         }
 
-        button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        .error {
+            color: red;
         }
 
-        .footer {
-            text-align: center;
-            margin-top: 20px;
-            color: #777;
-            font-size: 13px;
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 25px 20px;
-            }
-
-            h2 {
-                font-size: 24px;
-            }
+        .success {
+            color: green;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="container">
+<div class="container">
 
-        <h2>Student Registration</h2>
+    <h2>Create Account</h2>
 
-        <form method="POST">
-            {% csrf_token %}
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
 
-            {{ form.as_p }}
+    {% if success %}
+        <p class="success">{{ success }}</p>
+    {% endif %}
 
-            <button type="submit">Register Now</button>
-        </form>
+    <form method="POST">
 
-        <div class="footer">
-            Student Registration Portal
-        </div>
+        {% csrf_token %}
 
-    </div>
+        <label>Username</label>
+        <input type="text"
+               name="username"
+               placeholder="Enter username"
+               required>
+
+        <label>Email</label>
+        <input type="email"
+               name="email"
+               placeholder="Enter email"
+               required>
+
+        <label>Password</label>
+        <input type="password"
+               name="password"
+               placeholder="Enter password"
+               required>
+
+        <label>Confirm Password</label>
+        <input type="password"
+               name="confirm_password"
+               placeholder="Confirm password"
+               required>
+
+        <button type="submit">Register</button>
+
+    </form>
+
+</div>
 
 </body>
 </html>
