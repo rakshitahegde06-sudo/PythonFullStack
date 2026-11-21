@@ -3,8 +3,9 @@ from .forms import StudentForm
 from .models import Student
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
+from .models import Product
 
-def student_form(request):
+def register(request):
 
     if request.method == 'POST':
 
@@ -13,14 +14,14 @@ def student_form(request):
         if form.is_valid():
             form.save()
 
-            return redirect('student_list')
+            return redirect('register')
 
     else:
         form = StudentForm()
 
     return render(
         request,
-        'Students/student_form.html',
+        'Students/register.html',
         {'form': form}
     )
 
@@ -69,3 +70,11 @@ def logout_page(request):
         logout(request)
 
     return redirect('login')
+def home(request):
+    return render(request,'students/home.html')
+def products(request):
+    all_products = Product.objects.all()
+    return render(request,'students/products.html',
+{
+    'products':all_products
+})
